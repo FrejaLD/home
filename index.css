@@ -1,7 +1,7 @@
 .col-md-9 {
     background: #bdbdbd;
     height: auto;
-    width: 70%;
+    width: 70% !important;
     padding-top: 25px;
 }
 
