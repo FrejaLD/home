@@ -1,14 +1,5 @@
-.col-md-9 {
-    background: #bdbdbd;
-    height: auto;
-    width: 20% !important;
-    padding-top: 25px;
-}
-
 .card {
-    display: flex; 
-    justify-content: center !important;
-    align-items: center !important;
+    display: flex;
     flex-direction: column; 
     border-radius: 5px  5px 5px 5px;
     width: 220px;
