@@ -16,41 +16,27 @@ body {
 }
 
 
-#button {
-  display: inline-block;
-  background-color: #FF9800;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  border-radius: 4px;
+#backToTopBtn {
+  display: none; /* Keeps it from interfering with clicks when hidden */
   position: fixed;
-  bottom: 30px;
+  bottom: 20px;
   right: 30px;
-  transition: background-color .3s, 
-    opacity .5s, visibility .5s;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 1000;
-}
-#button::after {
-  content: "\f077";
-  font-family: FontAwesome;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 2em;
-  line-height: 50px;
-  color: #fff;
-}
-#button:hover {
-  cursor: pointer;
-  background-color: #333;
-}
-#button:active {
+  z-index: 99;
+  border: none;
+  outline: none;
   background-color: #555;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Controls the fade speed */
 }
-#button.show {
+
+#backToTopBtn.show {
+  display: block;
   opacity: 1;
-  visibility: visible;
 }
 
 
