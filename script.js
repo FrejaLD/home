@@ -15,12 +15,22 @@ backToTopButton.addEventListener("click", () => {
   });
 });
 
-/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+const dropdowns = document.querySelectorAll('.dropdown');
+
+// Toggle mobile menu
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Toggle dropdowns on click for mobile users
+dropdowns.forEach(dropdown => {
+  dropdown.addEventListener('click', (e) => {
+    // Only apply on smaller screens
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      dropdown.classList.toggle('active');
+    }
+  });
+});
