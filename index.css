@@ -16,20 +16,41 @@ body {
 }
 
 
-.go-top {
-	position: fixed;
-	bottom: 2em;
-	right: 2em;
-	text-decoration: none;
-	color: white;
-	background-color: rgba(0, 0, 0, 0.3);
-	font-size: 12px;
-	padding: 1em;
-display: none;
+#button {
+  display: inline-block;
+  background-color: #FF9800;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
 }
-
-.go-top:hover {
-	background-color: rgba(0, 0, 0, 0.6);
+#button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#button:active {
+  background-color: #555;
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 
@@ -47,6 +68,14 @@ div, body{
   padding-top: 15px !important;
     padding-bottom: 30px !important;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+@media (min-width: 768px) {
+  .container {grid-area: 1 / span 6;}
+  .row {grid-area: 1 / span 1;}
+  .column {grid-area: 1 / span 4;}
+  .card {grid-area: 1 / span 1;}
+  .card-img {grid-area: 1 / span 6;}
 }
 
 .banner {
