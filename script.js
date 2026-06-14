@@ -15,22 +15,11 @@ backToTopButton.addEventListener("click", () => {
   });
 });
 
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-const dropdowns = document.querySelectorAll('.dropdown');
-
-// Toggle mobile menu
-navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
-
-// Toggle dropdowns on click for mobile users
-dropdowns.forEach(dropdown => {
-  dropdown.addEventListener('click', (e) => {
-    // Only apply on smaller screens
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      dropdown.classList.toggle('active');
-    }
-  });
-});
+function updatemenu() {
+  if (document.getElementById('responsive-menu').checked == true) {
+    document.getElementById('menu').style.borderBottomRightRadius = '0';
+    document.getElementById('menu').style.borderBottomLeftRadius = '0';
+  }else{
+    document.getElementById('menu').style.borderRadius = '0px';
+  }
+}
