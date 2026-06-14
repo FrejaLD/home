@@ -12,30 +12,20 @@
 
 <button id="backToTopBtn" title="Go to top">Top</button>
 
-<nav class="navbar">
-  <div class="logo">MyBrand</div>
-
-  <!-- Hamburger Menu Button -->
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-    <span class="hamburger"></span>
-  </button>
-
-  <!-- Navigation Links -->
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    
-    <!-- Dropdown Menu -->
-    <li class="dropdown">
-      <a href="#" class="dropbtn">Services <span class="arrow">&#9662;</span></a>
-      <ul class="dropdown-content">
-        <li><a href="#">Web Design</a></li>
-        <li><a href="#">SEO</a></li>
-        <li><a href="#">Consulting</a></li>
+<nav id='menu'>
+  <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+  <ul>
+    <li><a href='http://'>Home</a></li>
+    <li><a class='dropdown-arrow' href='http://'>Products</a>
+      <ul class='sub-menus'>
+        <li><a href='http://'>Products 1</a></li>
+        <li><a href='http://'>Products 2</a></li>
+        <li><a href='http://'>Products 3</a></li>
+        <li><a href='http://'>Products 4</a></li>
       </ul>
     </li>
-
-    <li><a href="#">Contact</a></li>
+    <li><a href='http://'>About</a></li>
+    <li><a href='http://'>Contact Us</a></li>
   </ul>
 </nav>
 
