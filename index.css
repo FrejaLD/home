@@ -3,16 +3,6 @@
 }
 
 
-body { 
-  background-color: #1e1e2e;
-  background-image:
-    radial-gradient(circle at 80.4% 71.3%, #5f86d2, transparent 50%),
-    radial-gradient(circle at 49.8% 21.1%, #e6c1fb, transparent 50%),
-    radial-gradient(circle at 41.5% 75.8%, #477ea6, transparent 50%);
-  background-blend-mode: soft-light;
-}
-
-
 
 .container{
     display: flex;
