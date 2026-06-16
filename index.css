@@ -1,17 +1,116 @@
 * {
-  box-sizing: border-box !important;
+  margin: 0; padding: 0; border: 0 none; position: relative;
+}
+*, *:after, *:before {
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+
+body { 
+    font-family: "OpenSans", Helvetica, Tahoma, Arial, sans-serif;
+  background-color: #1e1e2e;
+  background-image:
+    radial-gradient(circle at 80.4% 71.3%, #5f86d2, transparent 50%),
+    radial-gradient(circle at 49.8% 21.1%, #e6c1fb, transparent 50%),
+    radial-gradient(circle at 41.5% 75.8%, #477ea6, transparent 50%);
+      background-size: cover;
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+    font-size: 14px;
+}
+
+
+hr {
+  background-color: #0000;
+  padding: 0;
+  margin: 80px;
+}
+
+hr.hr-1 {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .75), rgba(255, 255, 255, 0));
+}
+
+
+/* 🐞 codyhouse.co */
+.text-divider {
+  --text-divider-gap: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.text-divider::before, .text-divider::after {
+  content: '';
+  height: 1px;
+  background-color: silver;
+  flex-grow: 1;
+}
+
+.text-divider::before {
+  margin-right: var(--text-divider-gap);
+}
+
+.text-divider::after {
+  margin-left: var(--text-divider-gap);
+}
+
+hr.style1 { 
+  height: 30px; 
+  border-style: solid; 
+  border-color: #ffffff7a; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px; 
+} 
+hr.style1:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: #0000; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
+}
+
+hr.style2 { 
+  height: 30px; 
+  border-style: solid; 
+  border-color: #ffffff7a; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
+} 
+hr.style2:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: #0000; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
 }
 
 
 
 .container{
-    display: flex;
+    display: block;
   min-width: 90% !important;
     max-width: 100%;
+    padding: 20px;
   background: #2a313ba6 !important;
   color: #bfbfbf;
     border: 1px solid #ffffff42;
     box-shadow: none !important;
+    border-radius: 5px !important;
 }
 
 @media screen and (max-width: 800px) {
@@ -20,178 +119,159 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+  .tabs{
+    width: 100% !important;
+  }
+}
 
-hr{
-border-top: 1px solid #8c8b8b;
+@media screen and (max-width: 800px) {
+ .tabs .tab-content{
+    width: 100% !important;
+  }
 }
 
 
 
-
-
-
-#menu {
-	background: #2a313ba6;
-	height: 45px;
-	border-radius: 0px;
-    border-bottom: none; 
-    
+.tabs {
+	display: flex;
+	flex-wrap: wrap;
+  margin: 2rem auto;
+  max-width: 100%;
+    width: 90%;
 }
 
-@media screen and (max-width: 800px){
-	#menu {
-		position: relative;
-		height: auto; 
-		min-height: 45px;
-	}
-	
-	
-	#menu ul {
-		background: #3b3b3b;
-		position: relative;
-		clear: both;
-		padding-top: 45px;
-		z-index: 3;
-		height: auto;
-		display: none;
-		text-align: left;
-	}
-	
-	#menu ul.sub-menus {
-		width: 100%;
-		position: static;
-	}
-	
-	#menu ul.sub-menus a {
-		padding-left: 30px;
-	}
-	
-	#menu li {
-		display: block;
-		float: none;
-		width: auto;
-	}
-	
-	#menu input, #menu label {
-		position: absolute;
-		top: 0;
-		left: 0;
-		display: block;
-	}
-	
-	#menu input {
-		z-index: 4;
-	}
-	
-	#menu input:checked + label {
-		color: #FFFFFF;
-	}
-	
-	#menu input:checked + label:before {
-		content: "\00d7";
-	}
-	
-	#menu input:checked ~ ul {
-		display: block;
-	}
-}
-
-
-#menu ul, #menu li {
-	margin: 0 auto;
-	padding: 0;
-	list-style: none
-}
-#menu ul {
-	width: 100%;
-	text-align: center;
-    border-bottom: 1px solid #ffffff42 !important;
-}
-#menu li {
-	display: inline-block;
-	position: relative;
-}
-#menu a {
+.tabs label {
+  background: radial-gradient(ellipse 130% 90% at 50% 0%, rgba(255, 255, 255, 0.180) 0%, rgba(255, 255, 255, 0.100) 45%, rgba(255, 255, 255, 0.050) 100%);
+  backdrop-filter: blur(17px) saturate(170%);
+  -webkit-backdrop-filter: blur(17px) saturate(170%);
+  color: #bfbfbf;
+    border: 1px solid #ffffff94;
+    border-bottom: none;
+  cursor: pointer;
 	display: block;
-	line-height: 43px;
-	padding: 0 25px;
-	text-decoration: none;
-	color: #FFFFFF;
-	font-size: 18px;
-    
+  font-weight: 200;
+	margin-right: 0px;
+  order: initial;
+  padding: 10px 20px;
+  transition: background ease 0.1s;
+  width: 90%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
-#menu a.dropdown-arrow:after {
-	content: "\25BF";
-	margin-left: 5px;
+
+.tabs label::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse 110% 65% at 50% -15%, rgba(255, 255, 255, 0.550) 0%, rgba(255, 255, 255, 0) 70%);
+  opacity: 1.00;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
 }
-#menu li a:hover {
-	color: #FFFFFF;
-	background: #D9BAC7;
-}
-#menu input {
+
+.tabs .tab-content {
+  background: #2a313ba6 !important;
+  color: #bfbfbf;
 	display: none;
-	margin: 0;
-	padding: 0;
-	height: 45px;
-	width: 100%;
-	opacity: 0;
-	cursor: pointer
+  flex-grow: 1;
+  padding: 20px;
+  width: 90%;
+    margin-bottom: 80px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid #ffffff42;
 }
-#menu label {
-	display: none;
-	line-height: 43px;
-	text-align: center;
-	position: absolute;
-	left: 35px
-}
-#menu label:before {
-	font-size: 1.6em;
-	color: #FFFFFF;
-    
-	content: "\2261"; 
-	margin-left: 20px;
-}
-#menu ul.sub-menus{
-	height: auto;
-	overflow: hidden;
-	width: 170px;
-	background: #8B90AD;
-    
-	position: absolute;
-	z-index: 99;
+
+.tabs input[type="radio"] {
 	display: none;
 }
-#menu ul.sub-menus li {
+
+.tabs input[type="radio"]:checked + label {
+	background: #00000036;
+  color: #fff;
+}
+
+.tabs input[type="radio"]:checked + label + .tab-content {
 	display: block;
-	text-align: left;
-	width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
-#menu ul.sub-menus a {
-	color: #FFFFFF;
-	font-size: 15px;
+
+@media (min-width: 10em) {
+  .tabs .tab-content {
+    order: 99
+  }
+  
+  .tabs label {
+    order: 1;
+  }
+  
+  .tabs label {
+    margin-right: 3px;
+    margin-top: 0;
+    width: auto;
+  }
 }
-#menu li:hover ul.sub-menus {
-	display: block
-        
+
+
+/* Add a black background color to the top navigation */
+.topnav {
+  position: relative;
+  background-color: #333;
+  overflow: hidden;
 }
-#menu ul.sub-menus a:hover{
-	background: #D9BAC7;
-	color: #FFFFFF;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-    
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
-@media screen and (max-width: 800px){
-	#menu {position:relative}
-	#menu ul {background:#3b3b3b;position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none;text-align:left;}
-	#menu ul.sub-menus {width:100%;position:static;}
-	#menu ul.sub-menus a {padding-left:30px;}
-	#menu li {display:block;float:none;width:auto;}
-	#menu input, #menu label {position:absolute;top:0;left:0;display:block}
-	#menu input {z-index:4}
-	#menu input:checked + label {color:#FFFFFF}
-	#menu input:checked + label:before {content:"\00d7"}
-	#menu input:checked ~ ul {display:block}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Centered section inside the top navigation */
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}
+
+/* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
 }
 
 
@@ -224,13 +304,6 @@ border-top: 1px solid #8c8b8b;
 	#backToTopBtn.show{
     display: none;
   }
-}
-
-
-div, body{
-  margin: 0;
-  padding: 0;
-  font-family: exo, sans-serif;
 }
 
 .container {
