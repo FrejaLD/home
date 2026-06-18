@@ -1,37 +1,25 @@
-// Delay execution to let CodePen finish rendering HTML
 setTimeout(() => {
   const modal = document.getElementById("lightboxModal");
   const modalImg = document.getElementById("modalImg");
-  const closeBtn = document.querySelector(".close-btn");
   const cardImages = document.querySelectorAll(".card_image img");
 
-  if (modal && closeBtn) {
-    
-    // Open modal on card image click
-    cardImages.forEach(img => {
-      img.addEventListener("click", () => {
+  // 1. OPENING THE MODAL: When a thumbnail is clicked
+  cardImages.forEach(img => {
+    img.addEventListener("click", (e) => {
+      e.stopPropagation(); // Stops it from instantly closing itself
+      if (modal && modalImg) {
         modal.style.display = "flex";
         modalImg.src = img.src;
-      });
-    });
-
-    // Close modal when clicking 'X'
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-
-    // Close modal when clicking the dark background overlay
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
+        console.log("Modal opened with image:", img.src);
       }
     });
+  });
 
-    // NEW: Close modal when clicking directly on the expanded image
-    modalImg.addEventListener("click", () => {
+  // 2. CLOSING THE MODAL: Catching any click on the screen while modal is active
+  if (modal) {
+    modal.addEventListener("click", () => {
       modal.style.display = "none";
+      console.log("Modal closed!");
     });
-    
-    console.log("Lightbox successfully initialized with image-close function!");
   }
-}, 200);
+}, 250);
