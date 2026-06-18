@@ -16,16 +16,27 @@ backToTopButton.addEventListener("click", () => {
 });
 
 
-$(document).ready(function() {
-/* show lightbox when clicking a thumbnail */
-    $('a.thumb').click(function(event){
-    	event.preventDefault();
-    	var content = $('.modal-body');
-    	content.empty();
-      	var title = $(this).attr("title");
-      	$('.modal-title').html(title);      	
-      	content.html($(this).html());
-      	$(".modal-profile").modal({show:true});
-    });
+const modal = document.getElementById("lightboxModal");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.querySelector(".close-btn");
+const cardImages = document.querySelectorAll(".card-image img");
 
+// Open modal when any card image is clicked
+cardImages.forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = img.src;
   });
+});
+
+// Close modal when clicking the 'X' button
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Close modal when clicking anywhere outside the image
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
