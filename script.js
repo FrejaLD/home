@@ -36,17 +36,19 @@ function auto_grow(element) {
 const textarea = document.getElementById('myTextarea');
 const copyBtn = document.getElementById('copyBtn');
 
-copyBtn.addEventListener('click', () => {
-  // Fallback copy method using older execCommand document logic
-  textarea.select();
-  document.execCommand('copy');
-  
-  // Clear the visual text selection highlight
-  window.getSelection().removeAllRanges();
+copyBtn.addEventListener('click', async () => {
+  if (!textarea.value.trim()) return;
 
-  // Trigger the CSS pseudo-element swap
-  copyBtn.classList.add('success');
-  setTimeout(() => {
-    copyBtn.classList.remove('success');
-  }, 2000);
+  try {
+    await navigator.clipboard.writeText(textarea.value);
+    
+    // Add success class to trigger CSS background swap
+    copyBtn.classList.add('success');
+    
+    setTimeout(() => {
+      copyBtn.classList.remove('success');
+    }, 2000);
+  } catch (err) {
+    console.error('Copy failed', err);
+  }
 });
