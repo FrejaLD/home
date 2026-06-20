@@ -37,28 +37,25 @@ const copyButtons = document.querySelectorAll('.copy-btn');
 
 copyButtons.forEach(button => {
   button.addEventListener('click', () => {
-    // Get the target textarea ID from the data-target attribute
     const targetId = button.getAttribute('data-target');
     const textarea = document.getElementById(targetId);
+    const icon = button.querySelector('i'); // Find the icon inside this button
 
-    if (textarea) {
-      // Use the Clipboard API to copy the text
+    if (textarea && icon) {
       navigator.clipboard.writeText(textarea.value)
         .then(() => {
-          // Success: Provide temporary visual feedback
-          const originalText = button.textContent;
-          button.textContent = 'Copied!';
-          button.classList.add('copied'); // Optional for CSS styling
+          // 1. Swap to checkmark icon
+          icon.className = 'fa-solid fa-check';
+          button.classList.add('success'); // Optional: for green styling
 
-          // Reset button text after 2 seconds
+          // 2. Revert back to copy icon after 2 seconds
           setTimeout(() => {
-            button.textContent = originalText;
-            button.classList.remove('copied');
+            icon.className = 'fa-regular fa-copy';
+            button.classList.remove('success');
           }, 2000);
         })
         .catch(err => {
-          console.error('Failed to copy text: ', err);
-          alert('Could not copy text. Please try manually.');
+          console.error('Copy failed: ', err);
         });
     }
   });
