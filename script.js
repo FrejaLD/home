@@ -33,26 +33,20 @@ function auto_grow(element) {
 
 
 
-document.querySelectorAll('.copy-icon-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    const targetId = button.getAttribute('data-target');
-    const textarea = document.getElementById(targetId);
-    const icon = button.querySelector('.icon-state');
-    
-    navigator.clipboard.writeText(textarea.value)
-      .then(() => {
-        // Change icon and add green styling class
-        icon.textContent = 'check';
-        button.classList.add('copied');
-        
-        // Reset back to original state after 2 seconds (2000ms)
-        setTimeout(() => {
-          icon.textContent = 'content_copy';
-          button.classList.remove('copied');
-        }, 2000);
-      })
-      .catch(err => {
-        console.error('Failed to copy text: ', err);
-      });
-  });
+const textarea = document.getElementById('myTextarea');
+const copyBtn = document.getElementById('copyBtn');
+
+copyBtn.addEventListener('click', () => {
+  // Fallback copy method using older execCommand document logic
+  textarea.select();
+  document.execCommand('copy');
+  
+  // Clear the visual text selection highlight
+  window.getSelection().removeAllRanges();
+
+  // Trigger the CSS pseudo-element swap
+  copyBtn.classList.add('success');
+  setTimeout(() => {
+    copyBtn.classList.remove('success');
+  }, 2000);
 });
