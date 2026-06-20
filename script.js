@@ -33,27 +33,20 @@ function auto_grow(element) {
 
 
 
-function copyText() {
-  // Get the textarea element
-  const textArea = document.getElementById("myTextarea");
-  const btn = document.getElementById("copyBtn");
-  
-  // Use the modern Clipboard API
-  navigator.clipboard.writeText(textArea.value)
-    .then(() => {
-      // Visual feedback: change button text temporarily
-      btn.textContent = "Copied!";
-      btn.classList.add("success");
+document.querySelectorAll('.copy-btn').forEach(button => {
+  button.addEventListener('click', function() {
+    // Look up to the container, then find the textarea inside it
+    const container = this.parentElement;
+    const textArea = container.querySelector('textarea');
+    
+    // Copy the text
+    navigator.clipboard.writeText(textArea.value).then(() => {
+      const originalText = this.textContent;
+      this.textContent = "Copied!";
       
-      // Reset button after 2 seconds
       setTimeout(() => {
-        btn.textContent = "Copy Text";
-        btn.classList.remove("success");
-      }, 2000);
-    })
-    .catch(err => {
-      console.error("Failed to copy text: ", err);
-      alert("Fallback: Please select and copy manually.");
+        this.textContent = originalText;
+      }, 1500);
     });
-}
-
+  });
+});
