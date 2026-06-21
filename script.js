@@ -42,7 +42,7 @@ document.querySelectorAll('.copy-btn').forEach(button => {
     // Copy the text
     navigator.clipboard.writeText(textArea.value).then(() => {
       const originalText = this.textContent;
-      this.textContent = "Copied!";
+      this.textContent = "✅";
       
       setTimeout(() => {
         this.textContent = originalText;
